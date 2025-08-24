@@ -1,0 +1,8 @@
+psutil
+kafka-python
+pyspark
+redis
+streamlit
+pandas
+scikit-learn
+plyer
