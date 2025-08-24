@@ -36,7 +36,7 @@ This project is a comprehensive platform for monitoring and analyzing system act
 Clone the repository and install the required Python packages:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/geekAyush123/real-time-monitoring.git
 cd real-time-monitoring
 pip install -r requirements.txt
 ```
@@ -102,3 +102,43 @@ Now, open your web browser and go to the URL provided by Streamlit (usually `htt
 
 -   **Kafka**: To handle more producers, you can increase the number of partitions for the `system_metrics` topic. This can be done by modifying the `KAFKA_CREATE_TOPICS` environment variable in `docker-compose.yml` or by using the `kafka-topics.sh` script.
 -   **PySpark**: You can scale the stream processing by increasing the number of executors in your Spark cluster. When running locally, you can simulate this by adjusting the `--num-executors` and other configuration flags in the `spark-submit` command. For a production setup, you would run this on a proper Spark cluster (like YARN or Kubernetes).
+
+## Tech Stack
+
+- **Python**: Core programming language
+- **Apache Kafka**: Message streaming platform
+- **Apache Spark**: Distributed computing framework
+- **Redis**: In-memory data store for caching
+- **SQLite**: Lightweight database for persistence
+- **Streamlit**: Web framework for the dashboard
+- **Docker**: Containerization platform
+- **psutil**: System monitoring library
+
+## Project Structure
+
+```
+├── src/
+│   ├── producer.py          # System metrics producer
+│   ├── streaming.py         # Spark streaming processor
+│   ├── dashboard.py         # Streamlit dashboard
+│   ├── gradio_dashboard.py  # Alternative Gradio dashboard
+│   ├── database.py          # Database initialization
+│   ├── alerts.py            # Alert system
+│   ├── cache.py             # Redis cache utilities
+│   ├── simple_consumer.py   # Simple Kafka consumer
+│   └── test_pipeline.py     # Pipeline testing
+├── data/
+│   └── system_metrics.db    # SQLite database
+├── jars/                    # Spark JAR dependencies
+├── docker-compose.yml       # Infrastructure setup
+├── requirements.txt         # Python dependencies
+└── README.md               # This file
+```
+
+## Contributing
+
+Feel free to fork this repository and submit pull requests for any improvements!
+
+## License
+
+This project is open source and available under the MIT License.
